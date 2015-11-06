@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>{{appName}}</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="app/cors/assets/css/cors.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+
+</head>
+
+<body>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="{{typeAlert}}">{{alert.msg}}</alert>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-if="user.isLogged || !checkLogin">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ui-sref="home">{{appName}}</a>
+    </div>
+    <cors-menu menus="menus"></cors-menu>
+    <ul class="nav navbar-nav navbar-right" ng-controller="languageController">
+        <li dropdown ng-if="isShowLanguage">
+            <a href="#" class="dropdown-toggle" dropdown-toggle><i class="fa fa-globe"></i> {{ currentLanguage.name
+                }} <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li ng-repeat="language in languages">
+                    <a ng-click="changeLanguage(language.code)">{{ language.name }}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li dropdown ng-if="user">
+            <a href="#" class="dropdown-toggle" dropdown-toggle>
+                <i class="fa fa-user"></i> {{ user.username }} <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li >
+                    <a ng-click="logout()"><i class="fa fa-power-off"></i> Logout</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div ui-view/>
+
+
+<!-- External lib -->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/angular-translate/angular-translate.min.js"></script>
+<script src="bower_components/lodash/lodash.min.js"></script>
+<script src="bower_components/restangular/dist/restangular.min.js"></script>
+<script src="bower_components/firebase/firebase.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+<script src="bower_components/angular-socket-io/socket.min.js"></script>
+<script src="bower_components/angular-load/angular-load.min.js"></script>
+<script src="bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js"></script>
+
+<!-- Cors -->
+<script src="app.js"></script>
+<script src="app/cors/config/constant.js"></script>
+<script src="app/cors/config/routes.js"></script>
+<script src="app/cors/services/localStore.service.js"></script>
+<script src="app/cors/services/translation.service.js"></script>
+<script src="app/cors/services/errors.service.js"></script>
+<script src="app/cors/services/rest.service.js"></script>
+<script src="app/cors/services/api.service.js"></script>
+<script src="app/cors/services/firebase.service.js"></script>
+<script src="app/cors/services/tools.service.js"></script>
+<script src="app/cors/services/user.service.js"></script>
+<script src="app/cors/services/random.service.js"></script>
+<script src="app/cors/factory/socket.factory.js"></script>
+<script src="app/cors/filters/toRelativeTime.filter.js"></script>
+<script src="app/cors/filters/toDate.filter.js"></script>
+<script src="app/cors/directives/menu.directive.js"></script>
+<script src="app/cors/controllers/language.controller.js"></script>
+<script src="app/cors/controllers/login.controller.js"></script>
+<script src="app/cors/translations/fr_FR.js"></script>
+<script src="app/cors/translations/en_EN.js"></script>
+
+<!-- HomeModule -->
+<script src="app/modules/HomeModule/home.module.js"></script>
+<script src="app/modules/HomeModule/config/routes.js"></script>
+<script src="app/modules/HomeModule/controllers/home_controller.js"></script>
+<script src="app/modules/HomeModule/translations/fr_FR.js"></script>
+<script src="app/modules/HomeModule/translations/en_EN.js"></script>
+
+</body>
+</html>

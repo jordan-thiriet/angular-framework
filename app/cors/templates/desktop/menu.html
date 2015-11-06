@@ -1,0 +1,18 @@
+<ul class="nav navbar-nav">
+    <li dropdown ng-repeat="menu in menus|orderBy:'position'" ng-class="{'active': menu.actif}">
+        <a ui-sref="{{menu.sref}}" class="dropdown-toggle" dropdown-toggle ng-if="menu.submenu !== undefined">
+            <i ng-class="menu.icon"></i> {{ menu.title | translate }}
+            <span class="caret" ng-if="menu.submenu !== undefined"></span>
+        </a>
+        <a ui-sref="{{menu.sref}}" ng-if="menu.submenu === undefined">
+            <i ng-class="menu.icon"></i> {{ menu.title | translate }}
+        </a>
+        <ul class="dropdown-menu" role="menu" ng-if="menu.submenu !== undefined">
+            <li ng-repeat="submenu in menu.submenu">
+                <a ui-sref="{{submenu.sref}}" ng-click="clickLink(menu)">
+                    <i ng-class="submenu.icon"></i> {{ submenu.title | translate }}
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
