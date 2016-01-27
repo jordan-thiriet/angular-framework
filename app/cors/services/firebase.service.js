@@ -28,7 +28,7 @@ app.service('$firebase',['$log', '$q', 'errorsService', 'CONFIG_FIREBASE', '$fir
             password : password
         }).then(function(authData) {
             User.setToken(authData.token, null);
-            User.setUser({id: authData.uid,username: authData.password.email,email: authData.password.email});
+            User.setUser({id: authData.uid,username: authData.password.email,email: authData.password.email}, password);
             deferred.resolve();
         }).catch(function(error) {
             errorsService.getErrors(400, error.code);

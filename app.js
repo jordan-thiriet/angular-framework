@@ -13,6 +13,7 @@ var app = angular.module('app',
         'restangular',
         'btford.socket-io',
         'angularLoad',
+        'angular-md5',
         'firebase',
         'homeModule'
     ])
@@ -27,6 +28,8 @@ var app = angular.module('app',
         $rootScope.typeAlert = CONFIG.typeAlert;
         $rootScope.checkLogin = CONFIG.login;
         $rootScope.chartColor = CONFIG.chartColor;
+        $rootScope.showHeader = true;
+        $rootScope.showFooter = true;
 
         $rest.init();
         if(CONFIG.login) {

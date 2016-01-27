@@ -2,7 +2,7 @@
 
 angular.module('app').constant('CONFIG', {
     appName: 'AppName',
-    version: '0.0.1',
+    version: '0.0.1 beta',
     typeAlert: 'alert-header',
     default_language: 'fr_FR',
     show_languages: true,

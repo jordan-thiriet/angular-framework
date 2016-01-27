@@ -17,6 +17,7 @@
     "simple-line-icons": "~2.2.3",
     "angular-utils": "*",
     "AngularJS-Toaster": "angularjs-toaster#~1.0.0",
-    "angular-ui-utils": "~3.0.0"
+    "angular-ui-utils": "~3.0.0",
+    "angular-md5": "~0.1.10"
   }
 }

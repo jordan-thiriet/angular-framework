@@ -2,8 +2,7 @@
 /**
  * Service to manage User
  */
-app.service('User',['$rootScope', '$localStore', '$state', '$http', function($rootScope, $localStore, $state, $http) {
-
+app.service('User',['$rootScope', '$localStore', '$state', '$http', 'md5', function($rootScope, $localStore, $state, $http, md5) {
     /**
      * Init User
      */
@@ -41,13 +40,30 @@ app.service('User',['$rootScope', '$localStore', '$state', '$http', function($ro
     /**
      * Set user
      * @param user
+     * @param password
      */
-    this.setUser = function(user) {
+    this.setUser = function(user, password) {
         $rootScope.user.id = user.id;
         $rootScope.user.username = user.username;
         $rootScope.user.email = user.email;
-        delete $rootScope.user.password;
+        $rootScope.user.password = this.encodePassword(password);
         this.save();
+    };
+
+    /**
+     * Test if same password
+     * @param password
+     */
+    this.isSamePassword = function(password) {
+        return $rootScope.user.password === this.encodePassword(password);
+    };
+
+    /**
+     * encode password
+     * @param password
+     */
+    this.encodePassword = function(password) {
+        return md5.createHash(password)
     };
 
     /**

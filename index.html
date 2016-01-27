@@ -21,14 +21,16 @@
     <script src="http://localhost:8080/socket.io/socket.io.js"></script>
 </head>
 <body>
-<div class="app app-header-fixed app-aside-folded app-aside-dock" id="app">
+<div class="app app-header-fixed app-aside-dock" id="app">
     <!-- navbar -->
-    <div data-ng-include="'app/cors/templates/angulr/header.html'" class="app-header navbar" ng-if="user.isLogged || !checkLogin"></div>
+    <div data-ng-include="'app/cors/templates/angulr/header.html'" class="app-header navbar" ng-if="showHeader"></div>
     <!-- / navbar -->
-    <div class="app-content" ui-view></div>
+    <div class="app-content">
+        <div class="app-content-body" ui-view></div>
+    </div>
     <toaster-container></toaster-container>
 
-    <div data-ng-include="'app/cors/templates/angulr/footer.html'" ng-if="user.isLogged || !checkLogin"></div>
+    <div data-ng-include="'app/cors/templates/angulr/footer.html'" ng-if="showFooter"></div>
 </div>
 <!-- build:js dist/app.min.js -->
 <!-- External lib -->
@@ -47,6 +49,7 @@
 <script src="bower_components/angular-load/angular-load.min.js"></script>
 <script src="bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js"></script>
 <script src="bower_components/AngularJS-Toaster/toaster.min.js"></script>
+<script src="bower_components/angular-md5/angular-md5.min.js"></script>
 
 
 <!-- Cors -->
@@ -70,6 +73,7 @@
 <script src="app/cors/directives/scroll.directive.js"></script>
 <script src="app/cors/controllers/language.controller.js"></script>
 <script src="app/cors/controllers/login.controller.js"></script>
+<script src="app/cors/controllers/lock.controller.js"></script>
 <script src="app/cors/translations/fr_FR.js"></script>
 <script src="app/cors/translations/en_EN.js"></script>
 

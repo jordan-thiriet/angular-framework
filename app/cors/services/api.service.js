@@ -38,7 +38,7 @@ app.service('$api',['Restangular', '$log', '$q', 'errorsService', 'CONFIG_REST',
             $http.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.access_token;
             User.setToken(response.data.access_token, response.data.refresh_token);
             that.getOne('user',null).then(function(response) {
-                User.setUser(response.data);
+                User.setUser(response.data, password);
                 deferred.resolve();
             });
         });
