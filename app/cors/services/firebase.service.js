@@ -2,7 +2,7 @@
 /**
  * Service to connect at firebase
  */
-app.service('$firebase', function($log, $q, errorsService, CONFIG_FIREBASE, $firebaseArray, $firebaseObject, $firebaseAuth, User) {
+app.service('$firebase',['$log', '$q', 'errorsService', 'CONFIG_FIREBASE', '$firebaseArray', '$firebaseObject', '$firebaseAuth', 'User', function($log, $q, errorsService, CONFIG_FIREBASE, $firebaseArray, $firebaseObject, $firebaseAuth, User) {
 
     this.ref = null;
     this.lastArray = null;
@@ -92,4 +92,4 @@ app.service('$firebase', function($log, $q, errorsService, CONFIG_FIREBASE, $fir
     this.remove = function(object) {
         return this.lastArray.$remove(object);
     };
-});
+}]);

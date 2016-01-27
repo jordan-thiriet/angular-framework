@@ -2,7 +2,7 @@
 /**
  * Service to connect at REST api
  */
-app.service('$api', function(Restangular, $log, $q, errorsService, CONFIG_REST, User, $http) {
+app.service('$api',['Restangular', '$log', '$q', 'errorsService', 'CONFIG_REST', 'User', '$http' ,function(Restangular, $log, $q, errorsService, CONFIG_REST, User, $http) {
 
     /**
      * Init api restangular
@@ -35,7 +35,6 @@ app.service('$api', function(Restangular, $log, $q, errorsService, CONFIG_REST, 
             grant_type: CONFIG_REST.grantType
         };
         Restangular.one(CONFIG_REST.url_token).get(query).then(function(response) {
-            console.log(response);
             $http.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.access_token;
             User.setToken(response.data.access_token, response.data.refresh_token);
             that.getOne('user',null).then(function(response) {
@@ -103,4 +102,4 @@ app.service('$api', function(Restangular, $log, $q, errorsService, CONFIG_REST, 
 
 
 
-});
+}]);

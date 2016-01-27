@@ -1,6 +1,6 @@
 'use strict';
 
-app.config(function($translateProvider) {
+app.config(['$translateProvider', function($translateProvider) {
     $translateProvider.translations('en_EN', {
         'LOGIN.LOGIN': 'Login',
         'LOGIN.USERNAME': 'Username',
@@ -11,7 +11,7 @@ app.config(function($translateProvider) {
         'ERROR.WRONG_LOGIN_PASSWORD': 'Wrong login or password',
         'ERROR.INVALID_EMAIL': 'Invalid email',
         'ERROR.ACCESS_DENIED': 'Access denied',
-        '404.TITLE': 'Oupps, 404 Not Found',
-        '404.DESC': 'Sorry, an error has occured, Requested page not found!'
+        '404.TITLE': '404',
+        'ERROR': 'Error'
     });
-});
+}]);

@@ -1,7 +1,7 @@
 'use strict';
 
 app
-    .controller('languageController', function ($scope, translationService) {
+    .controller('languageController',['$scope', 'translationService', function ($scope, translationService) {
 
         $scope.languages = translationService.getLanguages();
 
@@ -13,4 +13,4 @@ app
             $scope.currentLanguage = translationService.changeLanguage(code);
         };
 
-    });
+    }]);

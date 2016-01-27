@@ -1,4 +1,4 @@
 .DS_Store
 .idea/
-app/modules/
-bower_components/
+dist/
+index.angulr.html

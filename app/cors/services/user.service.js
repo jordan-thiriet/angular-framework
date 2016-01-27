@@ -2,7 +2,7 @@
 /**
  * Service to manage User
  */
-app.service('User', function($rootScope, $localStore, $state, $http) {
+app.service('User',['$rootScope', '$localStore', '$state', '$http', function($rootScope, $localStore, $state, $http) {
 
     /**
      * Init User
@@ -60,4 +60,4 @@ app.service('User', function($rootScope, $localStore, $state, $http) {
         $state.go('login');
     }
 
-});
+}]);

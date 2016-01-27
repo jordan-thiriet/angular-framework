@@ -3,7 +3,7 @@
 /**
  * Service to manage translation
  */
-app.service('translationService', function($filter, $translate, CONFIG, $localStore) {
+app.service('translationService',['$filter', '$translate', 'CONFIG', '$localStore', function($filter, $translate, CONFIG, $localStore) {
 
     this.currentLanguage = null;
 
@@ -55,4 +55,4 @@ app.service('translationService', function($filter, $translate, CONFIG, $localSt
         return this.currentLanguage;
     };
 
-});
+}]);

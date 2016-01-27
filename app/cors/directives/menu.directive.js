@@ -1,4 +1,4 @@
-app.directive('corsMenu', function($state, $timeout, $rootScope, CONFIG) {
+app.directive('corsMenu',['$state', '$timeout', '$rootScope', 'CONFIG', function($state, $timeout, $rootScope, CONFIG) {
     return {
         restrict: 'E',
         scope: 'menus=',
@@ -12,4 +12,4 @@ app.directive('corsMenu', function($state, $timeout, $rootScope, CONFIG) {
             };
         }
     };
-});
+}]);

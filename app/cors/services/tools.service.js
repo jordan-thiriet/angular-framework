@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('$tools', function() {
+app.service('$tools',[ function() {
 
     /**
      * Load assets in javascript
@@ -38,4 +38,4 @@ app.service('$tools', function() {
 
 
 
-});
+}]);

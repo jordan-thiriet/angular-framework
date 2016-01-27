@@ -5,7 +5,7 @@
  * It gives NSDate the ability to report times like "A moment ago", "30 seconds ago", "5 minutes ago", "Yesterday", "Last month", "2 years ago", and so on.
  */
 
-app.filter('toRelativeTime', function () {
+app.filter('toRelativeTime',[ function () {
     return function (date,iso_code) {
         if (typeof date === 'undefined') {
             return '';
@@ -191,4 +191,4 @@ app.filter('toRelativeTime', function () {
     function labelsToValue(labels, value) {
         return labels.replace('%d',Math.floor(value));
     }
-});
+}]);

@@ -2,6 +2,11 @@
 
 var app = angular.module('app',
     [
+        'ngAnimate',
+        'toaster',
+        'ui.utils',
+        'ui.load',
+        'ui.jq',
         'ui.bootstrap',
         'ui.router',
         'pascalprecht.translate',
@@ -12,7 +17,7 @@ var app = angular.module('app',
         'homeModule'
     ])
 
-    .run(function ($rootScope, CONFIG, CONFIG_REST, CONFIG_SOCKET, $rest, $state, errorsService, translationService, User, $timeout) {
+    .run(['$rootScope', 'CONFIG', 'CONFIG_REST', 'CONFIG_SOCKET', '$rest', '$state', 'errorsService', 'translationService', 'User', '$timeout',function ($rootScope, CONFIG, CONFIG_REST, CONFIG_SOCKET, $rest, $state, errorsService, translationService, User, $timeout) {
         /**
          * Init
          */
@@ -21,11 +26,13 @@ var app = angular.module('app',
         $rootScope.version = CONFIG.version;
         $rootScope.typeAlert = CONFIG.typeAlert;
         $rootScope.checkLogin = CONFIG.login;
-        errorsService.init();
+        $rootScope.chartColor = CONFIG.chartColor;
+
         $rest.init();
         if(CONFIG.login) {
             User.init();
         }
+
         $rootScope.urlServer = CONFIG_REST.server;
         $rootScope.urlStatic = CONFIG_REST.server_static;
         $rootScope.menus = [];
@@ -56,5 +63,5 @@ var app = angular.module('app',
                 }
             }
         });
-    });
+    }]);
 

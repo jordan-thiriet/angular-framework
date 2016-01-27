@@ -1,0 +1,16 @@
+<div class="container w-xxl w-auto-xs">
+    <div class="text-center m-b-lg">
+        <h1 class="text-shadow text-white">{{'404.TITLE' | translate}}</h1>
+    </div>
+    <div class="list-group bg-info auto m-b-sm m-b-lg">
+        <a ui-sref="home" class="list-group-item">
+            <i class="fa fa-chevron-right text-muted"></i>
+            <i class="fa fa-fw fa-mail-forward m-r-xs"></i> {{ 'HOME.TITLE' | translate }}
+        </a>
+    </div>
+    <!-- footer -->
+    <div class="text-center" data-ng-include="'app/cors/templates/angulr/footer.html'">
+        {% include 'blocks/page_footer.html' %}
+    </div>
+    <!-- / footer -->
+</div>

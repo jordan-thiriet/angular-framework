@@ -2,7 +2,7 @@
 /**
  * Service to manage connection of backend
  */
-app.service('$rest', function(CONFIG, $firebase, $api) {
+app.service('$rest',['CONFIG', '$firebase', '$api', function(CONFIG, $firebase, $api) {
 
     this.rest = null;
 
@@ -83,4 +83,4 @@ app.service('$rest', function(CONFIG, $firebase, $api) {
 
 
 
-});
+}]);

@@ -5,7 +5,7 @@
  * @return
  */
 
-app.service('$localStore', function() {
+app.service('$localStore',[ function() {
 
   /**
    * Add an item to localStore
@@ -45,4 +45,4 @@ app.service('$localStore', function() {
   this.clear = function() {
     return localStorage.clear();
   };
-});
+}]);

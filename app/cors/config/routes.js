@@ -1,6 +1,6 @@
 'use strict';
 
-app.config(function ($stateProvider, $urlRouterProvider, CONFIG) {
+app.config(['$stateProvider', '$urlRouterProvider', 'CONFIG', function ($stateProvider, $urlRouterProvider, CONFIG) {
     var templates = 'app/cors/templates/';
 
     $stateProvider
@@ -16,4 +16,4 @@ app.config(function ($stateProvider, $urlRouterProvider, CONFIG) {
         }
     );
     $urlRouterProvider.otherwise('/404');
-});
+}]);

@@ -2,7 +2,7 @@
 /**
  * Service for random an array with object item
  */
-app.service('$rand', function() {
+app.service('$rand',[ function() {
 
 
     this.list = null;
@@ -67,4 +67,4 @@ app.service('$rand', function() {
     };
 
 
-});
+}]);

@@ -3,7 +3,7 @@
 /**
  * This is an angularjs filter for date.
  */
-app.filter('toDate', function () {
+app.filter('toDate',[ function () {
     return function (date) {
         var newDate = date.split(/[\s-:/]+/);
         if(newDate[0].length !== 4) {
@@ -18,4 +18,4 @@ app.filter('toDate', function () {
         console.log(newDate);
         return new Date(newDate[0], newDate[1]-1, newDate[2], newDate[3], newDate[4], newDate[5]);
     }
-});
+}]);
