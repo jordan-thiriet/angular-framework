@@ -15,7 +15,8 @@ var app = angular.module('app',
         'angularLoad',
         'angular-md5',
         'firebase',
-        'homeModule'
+        'homeModule',
+		//InsertNewModule
     ])
 
     .run(['$rootScope', 'CONFIG', 'CONFIG_REST', 'CONFIG_SOCKET', '$rest', '$state', 'errorsService', 'translationService', 'User', '$timeout',function ($rootScope, CONFIG, CONFIG_REST, CONFIG_SOCKET, $rest, $state, errorsService, translationService, User, $timeout) {
