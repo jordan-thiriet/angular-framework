@@ -9,14 +9,35 @@ var replace = require("replace");
 var mod = {};
 
 mod.create = function() {
+    prompt.colors = true;
     prompt.start();
-    prompt.get(['Name', 'Url'], function (err, result) {
+    var schema = {
+        properties: {
+            Name: {
+                description: 'Name of module',
+                message: 'Invalid or require name',
+                pattern: /^[A-Z][a-zA-Z]+$/,
+                required: true
+            },
+            Url: {
+                description: 'Slug of module',
+                message: 'Invalid or require slug',
+                pattern: /^[a-z0-9-]+$/,
+                required: true
+            },
+            Icon: {
+                description: 'Icon font awesome (fa-xxx)'
+            }
+        }
+    };
+    prompt.get(schema, function (err, result) {
         ncp.limit = 16;
 
         var module = result.Name;
         var moduleLowerCase = result.Name.toLowerCase();
         var moduleUperCase = result.Name.toUpperCase();
         var moduleUrl = result.Url.toLowerCase();
+        var moduleIcon = result.Icon === '' ? 'fa-cubes' : result.Icon;
 
         ncp('../app/cors/pattern/module', '../app/modules/'+module+'Module', function (err) {
             if (err) {
@@ -56,6 +77,13 @@ mod.create = function() {
                 recursive: true,
                 silent: true
             });
+            replace({
+                regex: /\$moduleIcon/g,
+                replacement: moduleIcon,
+                paths: ['../app/modules/'+module+'Module/'],
+                recursive: true,
+                silent: true
+            });
 
             // Write into index.html
             fs.readFile('../index.html','utf8', function(err, data) {
@@ -80,7 +108,7 @@ mod.create = function() {
                     fs.writeFile('../app.js', data, 'utf8', function (err) {
                         if (err) return console.log(err);
                     });
-                    console.log('done!');
+                    console.log('Module has been created!'.green);
                 });
             });
         });

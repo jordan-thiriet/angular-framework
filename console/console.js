@@ -2,6 +2,7 @@
 
 var process = require('process');
 var module = require ('./module.js');
+var init = require ('./init.js');
 var replace = require("replace");
 var fs = require("fs");
 
@@ -20,6 +21,9 @@ process.argv.forEach(function(val, index, array) {
 
 
 switch (mod) {
+    case 'init':
+        init[fct]();
+        break;
     case 'module':
         module[fct]();
         break;

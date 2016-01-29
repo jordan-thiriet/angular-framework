@@ -3,7 +3,7 @@ var $moduleLowerModule = angular.module('$moduleLowerModule', ['app']).run(['$ro
         $rootScope.menus.push(
             {
                 title: '$moduleUperCase.TITLE',
-                icon: 'fa fa-home',
+                icon: 'fa $moduleIcon',
                 sref: '$moduleLower',
                 position: 10
             }

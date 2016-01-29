@@ -2,3 +2,5 @@
 .idea/
 dist/
 index.angulr.html
+app/cors/config/constant.js
+app/cors/config/constant.js.old

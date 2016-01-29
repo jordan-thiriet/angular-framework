@@ -26,7 +26,6 @@ var app = angular.module('app',
         translationService.init();
         $rootScope.appName = CONFIG.appName;
         $rootScope.version = CONFIG.version;
-        $rootScope.typeAlert = CONFIG.typeAlert;
         $rootScope.checkLogin = CONFIG.login;
         $rootScope.chartColor = CONFIG.chartColor;
         $rootScope.showHeader = true;
