@@ -3,6 +3,7 @@
 ### Init config
 
 ```
+npm install
 nodejs console/console.js init:config
 App Name : Name of application
 Version : Version of application
