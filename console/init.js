@@ -4,8 +4,21 @@ var colors = require('colors');
 var prompt = require('prompt');
 var fs = require('fs');
 var replace = require("replace");
+var exec = require('child_process').exec;
 
 var init = {};
+
+init.install = function() {
+    var self = this;
+    exec("cd ../ && bower install", function (error) {
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        } else {
+            console.log('Bower Install DONE!'.green);
+            self.config();
+        }
+    });
+};
 
 init.config = function() {
     if(!fs.existsSync('../app/cors/config/constant.js')) {
