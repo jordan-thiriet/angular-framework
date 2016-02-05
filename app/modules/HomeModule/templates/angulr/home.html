@@ -2,23 +2,76 @@
     <!-- main -->
     <div class="col">
         <div class="bg-black dker wrapper-lg">
-            <ul class="nav nav-pills nav-xxs nav-rounded m-b-lg">
+            <!--<ul class="nav nav-pills nav-xxs nav-rounded m-b-lg">
                 <li class="active"><a href>Day</a></li>
                 <li><a href ng-click="refreshData()">Week</a></li>
                 <li><a href ng-click="refreshData()">Month</a></li>
-            </ul>
-            <div ui-jq="plot" ui-refresh="d0_1" ui-options="
+            </ul>-->
+            <div ui-jq="plot" ui-refresh="poids" ui-options="
         [
-          { data: {{d0_1}}, points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } }
+            { data: {{poids}}, label: 'Poids', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } },
+            { data: {{graisse}}, label: 'Graisse', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } },
+            { data: {{hydrique}}, label: 'Hydrique', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } },
+            { data: {{musculaire}}, label: 'Musculaire', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } }
         ],
         {
           colors: ['{{chartColor.info}}', '{{chartColor.primary}}'],
           series: { shadowSize: 3 },
-          xaxis:{ font: { color: '#507b9b' } },
-          yaxis:{ font: { color: '#507b9b' }, max:16 },
+          xaxis:{ font: { color: '#507b9b' },
+                  mode: 'time',
+            timeformat: '%Y/%m/%d' },
+          yaxis:{ font: { color: '#507b9b' }, max:90 },
           grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#1c2b36' },
           tooltip: true,
-          tooltipOpts: { content: 'Visits of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 10, y: -25 } }
+          tooltipOpts: { content: '%y.1',  defaultTheme: false, shifts: { x: 10, y: -20 } }
+        }
+      " style="min-height:360px" >
+            </div>
+        </div>
+        <div class="bg-black dker wrapper-lg">
+            <!--<ul class="nav nav-pills nav-xxs nav-rounded m-b-lg">
+                <li class="active"><a href>Day</a></li>
+                <li><a href ng-click="refreshData()">Week</a></li>
+                <li><a href ng-click="refreshData()">Month</a></li>
+            </ul>-->
+            <div ui-jq="plot" ui-refresh="musculaire" ui-options="
+        [
+            { data: {{musculaire}}, label: 'Musculaire', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } }
+        ],
+        {
+          colors: ['{{chartColor.info}}', '{{chartColor.primary}}'],
+          series: { shadowSize: 3 },
+          xaxis:{ font: { color: '#507b9b' },
+                  mode: 'time',
+            timeformat: '%Y/%m/%d' },
+          yaxis:{ font: { color: '#507b9b' }, max:50 },
+          grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#1c2b36' },
+          tooltip: true,
+          tooltipOpts: { content: '%y.1',  defaultTheme: false, shifts: { x: 10, y: -20 } }
+        }
+      " style="min-height:360px" >
+            </div>
+        </div>
+        <div class="bg-black dker wrapper-lg">
+            <!--<ul class="nav nav-pills nav-xxs nav-rounded m-b-lg">
+                <li class="active"><a href>Day</a></li>
+                <li><a href ng-click="refreshData()">Week</a></li>
+                <li><a href ng-click="refreshData()">Month</a></li>
+            </ul>-->
+            <div ui-jq="plot" ui-refresh="graisse" ui-options="
+        [
+            { data: {{graisse}}, label: 'Graisse', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } },
+        ],
+        {
+          colors: ['{{chartColor.info}}', '{{chartColor.primary}}'],
+          series: { shadowSize: 3 },
+          xaxis:{ font: { color: '#507b9b' },
+                  mode: 'time',
+            timeformat: '%Y/%m/%d' },
+          yaxis:{ font: { color: '#507b9b' }, max:50 },
+          grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#1c2b36' },
+          tooltip: true,
+          tooltipOpts: { content: '%y.1',  defaultTheme: false, shifts: { x: 10, y: -20 } }
         }
       " style="min-height:360px" >
             </div>

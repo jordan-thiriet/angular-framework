@@ -36,7 +36,11 @@ app.service('errorsService',['$rootScope', '$filter', 'User', '$alert', function
                         break;
                 }
                 break;
+            case 404:
+                $alert.error($filter('translate')('ERROR.NOT_FOUND'));
+                break;
             case 500:
+            case 503:
                 $alert.error($filter('translate')('ERROR.SERVICE_UNVAIBLE'));
                 break;
         }

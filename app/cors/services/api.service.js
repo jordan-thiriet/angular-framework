@@ -71,7 +71,7 @@ app.service('$api',['Restangular', '$log', '$q', 'errorsService', 'CONFIG_REST',
      * @returns {object}
      */
     this.post = function(path, object) {
-        return Restangular.all(path).post(object);
+        return Restangular.all('api/'+path).post(object);
     };
 
     /**

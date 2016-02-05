@@ -7,6 +7,7 @@ angular.module('app')
         plot:           [   'assets/themes/angulr/libs/jquery/flot/jquery.flot.js',
             'assets/themes/angulr/libs/jquery/flot/jquery.flot.pie.js',
             'assets/themes/angulr/libs/jquery/flot/jquery.flot.resize.js',
+            'assets/themes/angulr/libs/jquery/flot/jquery.flot.time.js',
             'assets/themes/angulr/libs/jquery/flot.tooltip/js/jquery.flot.tooltip.min.js',
             'assets/themes/angulr/libs/jquery/flot.orderbars/js/jquery.flot.orderBars.js',
             'assets/themes/angulr/libs/jquery/flot-spline/js/jquery.flot.spline.min.js'],

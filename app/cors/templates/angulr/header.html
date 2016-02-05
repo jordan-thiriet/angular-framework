@@ -50,19 +50,10 @@
                     <progressbar value="60" class="progress-xs m-b-none bg-white"></progressbar>
                 </li>
                 <li>
-                    <a href>
-                        <span class="badge bg-danger pull-right">30%</span>
-                        <span>Settings</span>
-                    </a>
+                    <a ui-sref="edit_profile"><i class="fa fa-user"></i> {{ 'USER.MYPROFILE' | translate }}</a>
                 </li>
                 <li>
-                    <a ui-sref="app.page.profile">Profile</a>
-                </li>
-                <li>
-                    <a ui-sref="app.docs">
-                        <span class="label bg-info pull-right">new</span>
-                        Help
-                    </a>
+                    <a ui-sref="change_password"><i class="fa fa-key"></i> {{ 'USER.CHANGE_PWD' | translate }}</a>
                 </li>
                 <li class="divider"></li>
                 <li>

@@ -45,7 +45,30 @@ app.service('User',['$rootScope', '$localStore', '$state', '$http', 'md5', funct
     this.setUser = function(user, password) {
         $rootScope.user.id = user.id;
         $rootScope.user.username = user.username;
+        $rootScope.user.firstname = user.firstname;
+        $rootScope.user.lastname = user.lastname;
         $rootScope.user.email = user.email;
+        $rootScope.user.password = this.encodePassword(password);
+        this.save();
+    };
+
+    /**
+     * update user
+     * @param user
+     */
+    this.updateUser = function(user) {
+        $rootScope.user.username = user.username;
+        $rootScope.user.firstname = user.firstname;
+        $rootScope.user.lastname = user.lastname;
+        $rootScope.user.email = user.email;
+        this.save();
+    };
+
+    /**
+     * update password
+     * @param password
+     */
+    this.updatePassword = function(password) {
         $rootScope.user.password = this.encodePassword(password);
         this.save();
     };
@@ -55,6 +78,7 @@ app.service('User',['$rootScope', '$localStore', '$state', '$http', 'md5', funct
      * @param password
      */
     this.isSamePassword = function(password) {
+        if(!password) return false;
         return $rootScope.user.password === this.encodePassword(password);
     };
 

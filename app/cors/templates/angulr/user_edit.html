@@ -1,0 +1,29 @@
+<div class="bg-light lter b-b wrapper-md" ng-controller="UserEditController">
+    <h1 class="m-n font-thin h3">{{ userEdit.username }}</h1>
+</div>
+<div class="wrapper-md">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">{{ 'USER.EDIT_PROFILE' | translate }}</div>
+                <div class="panel-body">
+                    <form role="form" ng-submit="save()">
+                        <div class="form-group">
+                            <label>{{ 'USER.EMAIL' | translate }}</label>
+                            <input type="email" class="form-control" ng-model="userEdit.email">
+                        </div>
+                        <div class="form-group">
+                            <label>{{ 'USER.LASTNAME' | translate }}</label>
+                            <input type="text" class="form-control" ng-model="userEdit.lastname">
+                        </div>
+                        <div class="form-group">
+                            <label>{{ 'USER.FIRSTNAME' | translate }}</label>
+                            <input type="text" class="form-control" ng-model="userEdit.firstname">
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-primary">{{ 'UPDATE' | translate }}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
