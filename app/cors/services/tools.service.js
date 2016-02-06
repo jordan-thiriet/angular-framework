@@ -36,6 +36,23 @@ app.service('$tools',[ function() {
     };
 
 
+    /**
+     * Get timestamp from date
+     * @param datestring
+     * @returns {number}
+     */
+    this.getTimestamp= function(datestring) {
+        var tmp = datestring.split(' ');
 
+        if(tmp.length !== 2 || tmp[0].split('-').length !== 3 || tmp[1].split(':').length !== 3) {
+            return false;
+        }
+
+        var tmp_date = tmp[0].split('-');
+        var tmp_time = tmp[1].split(':');
+
+        var date = new Date(tmp_date[0],tmp_date[1]-1,tmp_date[2],tmp_time[0],tmp_time[1],tmp_time[2]);
+        return date.getTime();
+    }
 
 }]);

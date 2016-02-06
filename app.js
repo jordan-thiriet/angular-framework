@@ -16,6 +16,7 @@ var app = angular.module('app',
         'angular-md5',
         'firebase',
         'homeModule',
+		'fitnessModule',
 		//InsertNewModule
     ])
 
