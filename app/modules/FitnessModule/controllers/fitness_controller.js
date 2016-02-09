@@ -26,7 +26,7 @@ fitnessModule
         $scope.fitness = {};
 
         var date = new Date;
-        $scope.date = date.getFullYear()+'-'+(parseInt(date.getMonth())+1)+'-'+date.getDay()+' 08:00:00';
+        $scope.date = date.getFullYear()+'-'+(parseInt(date.getMonth())+1)+'-'+date.getDate()+' 08:00:00';
 
         $scope.save = function() {
 
