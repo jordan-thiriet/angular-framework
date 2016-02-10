@@ -6,6 +6,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'CONFIG', function ($statePr
     $stateProvider
         .state('login', {
             url: "/login",
+            cache: false,
             templateUrl: templates+CONFIG.theme+'/login.html',
             controller: 'LoginController'
         })
@@ -18,6 +19,12 @@ app.config(['$stateProvider', '$urlRouterProvider', 'CONFIG', function ($statePr
             url: "/change-password",
             templateUrl: templates+CONFIG.theme+'/user_change_password.html',
             controller: 'UserChangePasswordController'
+        })
+        .state('forgot_password', {
+            url: "/forgot-password",
+            cache: false,
+            templateUrl: templates+CONFIG.theme+'/forgot_password.html',
+            controller: 'ForgotPasswordController'
         })
         .state('lock', {
             url: "/lock",

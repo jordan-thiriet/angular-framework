@@ -7,7 +7,7 @@
                 <li><a href ng-click="refreshData()">Week</a></li>
                 <li><a href ng-click="refreshData()">Month</a></li>
             </ul>-->
-            <div ui-jq="plot" ui-refresh="weight" ui-options="
+            <div ui-jq="plot" ui-options="
                 [
                     { data: {{weight}}, label: 'Poids', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } },
                     { data: {{fat}}, label: 'Graisse', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } },

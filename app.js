@@ -41,6 +41,8 @@ var app = angular.module('app',
         $rootScope.urlStatic = CONFIG_REST.server_static;
         $rootScope.menus = [];
         $rootScope.$on("$stateChangeStart", function (event, toState) {
+            $rootScope.showHeader = true;
+            $rootScope.showFooter = true;
             $timeout(function() {
                 if($rootScope.refreshMenu !== undefined) {
                     $rootScope.refreshMenu(toState.name);
@@ -49,9 +51,12 @@ var app = angular.module('app',
             if(CONFIG.login) {
                 /*If user is not logged redirect to login page*/
                 if ($rootScope.user === null || !$rootScope.user.isLogged) {
-                    if (toState.url !== '/login') {
+                    if (toState.url !== '/login' && toState.url !== '/forgot-password') {
                         event.preventDefault();
                         $state.go('login');
+                    } else {
+                        $rootScope.showHeader = false;
+                        $rootScope.showFooter = false;
                     }
                 } else {
                     /*If user is logged redirect to home page*/

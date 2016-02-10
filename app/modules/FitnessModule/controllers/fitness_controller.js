@@ -15,6 +15,7 @@ fitnessModule
                 $scope.fat.push([date, value.fat]);
                 $scope.fluids.push([date, value.fluids]);
                 $scope.muscule.push([date, value.muscule]);
+                if (!$scope.$$phase) $scope.$apply();
             });
         });
 
@@ -48,6 +49,7 @@ fitnessModule
             }
 
             $rest.post('fitness', $scope.fitness).then(function() {
+                $scope.fitness = {};
                 $alert.success($filter('translate')('FITNESS.MEASURE_CREATED'));
                 return true;
             });

@@ -3,6 +3,7 @@
 app.config(['$translateProvider', function ($translateProvider) {
     $translateProvider.translations('fr_FR', {
         'SAVE': 'Enregistrer',
+        'SEND': 'Envoyer',
         'UPDATE': 'Modifier',
         'CREATE': 'Créer',
         'LOGIN.LOGIN': 'Se connecter',
@@ -11,6 +12,10 @@ app.config(['$translateProvider', function ($translateProvider) {
         'LOGIN.ERROR.WRONG_LOGIN_PASSWORD': 'Mauvais login mot de passe',
         'LOGIN.ERROR.EMPTY_LOGIN_PASSWORD': 'Le login et le mot de passe doivent être renseignés',
         'LOGIN.ERROR.EMPTY_PASSWORD': 'Le mot de passe doit être renseigné',
+        'LOGIN.FORGOT_PASSWORD': 'Mot de passe oublié ?',
+        'LOGIN.FORGOT_PASSWORD_DESC': 'Entrer votre email pour réinitialiser votre mot de passe',
+        'LOGIN.FORGOT_PASSWORD_EMAIL': 'Email',
+        'LOGIN.FORGOT_PASSWORD_SENDED': 'Un lien de réinitialisation a été envoyé à votre adresse e-mail.',
         'USER.MYPROFILE': 'Mon profil',
         'USER.CHANGE_PWD': 'Modifier mot de passe',
         'USER.LOGOUT': 'Se deconnecter',

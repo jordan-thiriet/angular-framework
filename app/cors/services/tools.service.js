@@ -41,18 +41,36 @@ app.service('$tools',[ function() {
      * @param datestring
      * @returns {number}
      */
-    this.getTimestamp= function(datestring) {
-        var tmp = datestring.split(' ');
+    this.getTimestamp = function(datestring) {
+        var date = this.stringToDate(datestring);
+        return date ? date.getTime() : date;
+    };
 
-        if(tmp.length !== 2 || tmp[0].split('-').length !== 3 || tmp[1].split(':').length !== 3) {
+    /**
+     * Get datetime from a string
+     * @param datestring
+     * @returns {*}
+     */
+    this.stringToDate = function(datestring) {
+        var tmp = datestring.split(' ');
+        var date,tmp_date = null;
+
+        if(tmp.length !== 2 || (tmp[0].split('-').length !== 3 && tmp[0].split('/').length !== 3) || tmp[1].split(':').length !== 3) {
             return false;
         }
 
-        var tmp_date = tmp[0].split('-');
         var tmp_time = tmp[1].split(':');
 
-        var date = new Date(tmp_date[0],tmp_date[1]-1,tmp_date[2],tmp_time[0],tmp_time[1],tmp_time[2]);
-        return date.getTime();
+        if(tmp[0].split('-').length === 3) {
+            tmp_date = tmp[0].split('-');
+            date = new Date(tmp_date[0],tmp_date[1]-1,tmp_date[2],tmp_time[0],tmp_time[1],tmp_time[2]);
+
+        } else if(tmp[0].split('/').length === 3) {
+            tmp_date = tmp[0].split('/');
+            date = new Date(tmp_date[2],tmp_date[1]-1,tmp_date[0],tmp_time[0],tmp_time[1],tmp_time[2]);
+        }
+
+        return date;
     }
 
 }]);

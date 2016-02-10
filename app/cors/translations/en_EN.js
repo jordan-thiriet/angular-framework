@@ -3,6 +3,7 @@
 app.config(['$translateProvider', function($translateProvider) {
     $translateProvider.translations('en_EN', {
         'SAVE': 'Save',
+        'SEND': 'Send',
         'UPDATE': 'Update',
         'CREATE': 'Create',
         'LOGIN.LOGIN': 'Login',
@@ -11,6 +12,10 @@ app.config(['$translateProvider', function($translateProvider) {
         'LOGIN.ERROR.WRONG_LOGIN_PASSWORD': 'Wrong username or password',
         'LOGIN.ERROR.EMPTY_LOGIN_PASSWORD': 'Username and password cannot be empty',
         'LOGIN.ERROR.EMPTY_PASSWORD': 'Password cannot be empty',
+        'LOGIN.FORGOT_PASSWORD': 'Forgot password ?',
+        'LOGIN.FORGOT_PASSWORD_DESC': 'Input your email to reset your password',
+        'LOGIN.FORGOT_PASSWORD_EMAIL': 'Email',
+        'LOGIN.FORGOT_PASSWORD_SENDED': 'A reset link sent to your email address.',
         'USER.MYPROFILE': 'My profile',
         'USER.CHANGE_PWD': 'Modify password',
         'USER.LOGOUT': 'Logout',

@@ -1,6 +1,18 @@
 'use strict';
 
 app
+    .controller('UserEditController',['$rootScope', '$scope', '$rest', 'User', '$alert','$filter', function ($rootScope, $scope, $rest, User, $alert, $filter) {
+        $rest.getOne('user',$rootScope.user.id).then(function(data) {
+            $scope.userEdit = data.data;
+        });
+
+        $scope.save = function() {
+            $scope.userEdit.save().then(function() {
+                User.updateUser($scope.userEdit);
+                $alert.success($filter('translate')('USER.PROFIL_UPDATED'));
+            });
+        }
+    }])
     .controller('UserChangePasswordController',['$rootScope', '$scope', '$rest', 'User', '$alert','$filter', function ($rootScope, $scope, $rest, User, $alert, $filter) {
         $scope.change = function(oldpwd, newpwd, confpwd) {
 
@@ -17,4 +29,11 @@ app
                 });
             }
         }
+    }])
+    .controller('ForgotPasswordController',['$scope', '$rootScope', function ($scope, $rootScope) {
+
+        $scope.forgotPassword = function(email) {
+            console.log(email);
+        };
+
     }]);
