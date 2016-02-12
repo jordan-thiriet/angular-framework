@@ -19,6 +19,9 @@ app.service('errorsService',['$rootScope', '$filter', 'User', '$alert', function
                     case 'invalid_email':
                         $alert.error($filter('translate')('ERROR.INVALID_EMAIL'));
                         break;
+                    case 'unknow_email':
+                        $alert.error($filter('translate')('ERROR.UNKNOW_EMAIL'));
+                        break;
                     case 'invalid_user':
                     case 'invalid_password':
                     case 'invalid_grant':

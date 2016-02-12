@@ -1,4 +1,4 @@
-var fitnessModule = angular.module('fitnessModule', ['app']).run(['$rootScope', '$timeout', function($rootScope, $timeout) {
+var fitnessModule = angular.module('fitnessModule', ['app']).run(['$rootScope', '$timeout', '$settings', function($rootScope, $timeout, $settings) {
     $timeout(function () {
         $rootScope.menus.push(
             {
@@ -20,5 +20,16 @@ var fitnessModule = angular.module('fitnessModule', ['app']).run(['$rootScope', 
                 }]
             }
         );
+
+        var settings = {
+            fitness_type: {
+                value: 'Kg',
+                translation: 'FITNESS.TYPE',
+                type: 'select',
+                lists: ['Kg', 'Lbs']
+            }
+        };
+
+        $settings.add(settings);
     });
 }]);

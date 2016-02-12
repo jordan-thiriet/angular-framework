@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.min.css"/>
     <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css"/>
     <link rel="stylesheet" href="assets/themes/angulr/css/app.min.css">
+    <link rel="stylesheet" href="assets/themes/angulr/libs/angular/angular-ui-select/dist/select.min.css">
 
     <!-- build:css dist/app.min.css -->
     <link rel="stylesheet" href="assets/css/main.css">
@@ -51,6 +52,8 @@
 <script src="bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js"></script>
 <script src="bower_components/AngularJS-Toaster/toaster.min.js"></script>
 <script src="bower_components/angular-md5/angular-md5.min.js"></script>
+<script src="bower_components/highcharts/highstock.js"></script>
+<script src="bower_components/highcharts-ng/dist/highcharts-ng.min.js"></script>
 
 
 <!-- Cors -->
@@ -67,6 +70,7 @@
 <script src="app/cors/services/user.service.js"></script>
 <script src="app/cors/services/random.service.js"></script>
 <script src="app/cors/services/alert.service.js"></script>
+<script src="app/cors/services/settings.service.js"></script>
 <script src="app/cors/factory/socket.factory.js"></script>
 <script src="app/cors/filters/toRelativeTime.filter.js"></script>
 <script src="app/cors/filters/toDate.filter.js"></script>
@@ -76,13 +80,16 @@
 <script src="app/cors/controllers/login.controller.js"></script>
 <script src="app/cors/controllers/lock.controller.js"></script>
 <script src="app/cors/controllers/user.controller.js"></script>
+<script src="app/cors/controllers/settings.controller.js"></script>
 <script src="app/cors/translations/fr_FR.js"></script>
 <script src="app/cors/translations/en_EN.js"></script>
 
 <!-- angulr -->
 <script src="assets/themes/angulr/libs/angular/angular-ui-utils/ui-utils.js"></script>
+<script src="assets/themes/angulr/libs/angular/angular-ui-select/dist/select.min.js"></script>
 <script src="assets/themes/angulr/js/constant.js"></script>
 <script src="assets/themes/angulr/js/services/ui-load.js"></script>
+<script src="assets/themes/angulr/js/directives/ui-toggleclass.js"></script>
 <script src="assets/themes/angulr/js/directives/ui-jq.js"></script>
 
 <!-- HomeModule -->
@@ -95,6 +102,7 @@
 <!-- FitnessModule -->
 <script src="app/modules/FitnessModule/fitness.module.js"></script>
 <script src="app/modules/FitnessModule/config/routes.js"></script>
+<script src="app/modules/FitnessModule/config/config.js"></script>
 <script src="app/modules/FitnessModule/controllers/fitness_controller.js"></script>
 <script src="app/modules/FitnessModule/translations/fr_FR.js"></script>
 <script src="app/modules/FitnessModule/translations/en_EN.js"></script>

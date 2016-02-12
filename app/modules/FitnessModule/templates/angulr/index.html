@@ -1,31 +1,70 @@
 <div class="hbox hbox-auto-xs hbox-auto-sm" ng-controller="FitnessController">
     <!-- main -->
-    <div class="col">
+    <div class="row">
         <div class="bg-black dker wrapper-lg">
+            <highchart id="chart1" config="chartConfig" class="span10"></highchart>
             <!--<ul class="nav nav-pills nav-xxs nav-rounded m-b-lg">
                 <li class="active"><a href>Day</a></li>
                 <li><a href ng-click="refreshData()">Week</a></li>
                 <li><a href ng-click="refreshData()">Month</a></li>
             </ul>-->
-            <div ui-jq="plot" ui-options="
+            <!--<div ui-jq="plot" ui-options="
                 [
-                    { data: {{weight}}, label: 'Poids', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } },
-                    { data: {{fat}}, label: 'Graisse', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } },
-                    { data: {{fluids}}, label: 'Hydrique', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } },
-                    { data: {{muscule}}, label: 'Musculaire', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } }
+                    { data: {{weight}}, label: '{{ 'FITNESS.WEIGHT' | translate }}', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } },
+                    { data: {{fat}}, label: '{{ 'FITNESS.FAT_MASS' | translate }}', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } },
+                    { data: {{fluids}}, label: '{{ 'FITNESS.FLUIDS_MASS' | translate }}', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } },
+                    { data: {{muscule}}, label: '{{ 'FITNESS.MUSCULE_MASS' | translate }}', points: { show: true, radius: 2}, splines: { show: true, tension: 0.4, lineWidth: 1 } }
                 ],
                 {
                   colors: ['{{chartColor.info}}', '{{chartColor.primary}}'],
                   series: { shadowSize: 3 },
                   xaxis:{ font: { color: '#507b9b' },
                           mode: 'time',
-                    timeformat: '%Y/%m/%d' },
+                    timeformat: '%d/%m/%Y' },
                   yaxis:{ font: { color: '#507b9b' }, max:90 },
                   grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#1c2b36' },
                   tooltip: true,
                   tooltipOpts: { content: '%y.1',  defaultTheme: false, shifts: { x: 10, y: -20 } }
                 }
               " style="min-height:360px">
+            </div>-->
+        </div>
+    </div>
+    <div class="wrapper-md">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading font-bold">{{ 'FITNESS.WEIGHT' | translate }}</div>
+                    <div class="panel-body">
+                        <highchart id="chart2" config="chartWeight" class="span10"></highchart>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading font-bold">{{ 'FITNESS.FAT_MASS' | translate }}</div>
+                    <div class="panel-body">
+                        <highchart id="chart3" config="chartFat" class="span10"></highchart>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading font-bold">{{ 'FITNESS.FLUIDS_MASS' | translate }}</div>
+                    <div class="panel-body">
+                        <highchart id="chart4" config="chartFluids" class="span10"></highchart>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading font-bold">{{ 'FITNESS.MUSCULE_MASS' | translate }}</div>
+                    <div class="panel-body">
+                        <highchart id="chart5" config="chartMuscule" class="span10"></highchart>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -9,6 +9,7 @@ var app = angular.module('app',
         'ui.jq',
         'ui.bootstrap',
         'ui.router',
+        'ui.select',
         'pascalprecht.translate',
         'restangular',
         'btford.socket-io',
@@ -17,10 +18,11 @@ var app = angular.module('app',
         'firebase',
         'homeModule',
 		'fitnessModule',
+        'highcharts-ng',
 		//InsertNewModule
     ])
 
-    .run(['$rootScope', 'CONFIG', 'CONFIG_REST', 'CONFIG_SOCKET', '$rest', '$state', 'errorsService', 'translationService', 'User', '$timeout',function ($rootScope, CONFIG, CONFIG_REST, CONFIG_SOCKET, $rest, $state, errorsService, translationService, User, $timeout) {
+    .run(['$rootScope', 'CONFIG', 'CONFIG_REST', 'CONFIG_SOCKET', '$rest', '$state', 'errorsService', 'translationService', 'User', '$timeout', '$settings', function ($rootScope, CONFIG, CONFIG_REST, CONFIG_SOCKET, $rest, $state, errorsService, translationService, User, $timeout, $settings) {
         /**
          * Init
          */
@@ -33,9 +35,12 @@ var app = angular.module('app',
         $rootScope.showFooter = true;
 
         $rest.init();
+
         if(CONFIG.login) {
             User.init();
         }
+
+        $settings.init();
 
         $rootScope.urlServer = CONFIG_REST.server;
         $rootScope.urlStatic = CONFIG_REST.server_static;

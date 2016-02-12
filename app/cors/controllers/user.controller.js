@@ -30,10 +30,11 @@ app
             }
         }
     }])
-    .controller('ForgotPasswordController',['$scope', '$rootScope', function ($scope, $rootScope) {
+    .controller('ForgotPasswordController',['$scope', '$rest', function ($scope, $rest) {
 
         $scope.forgotPassword = function(email) {
-            console.log(email);
+            $rest.post('public/reset-password',{email: email}).then(function() {
+            });
         };
 
     }]);

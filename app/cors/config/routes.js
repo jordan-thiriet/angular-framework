@@ -31,6 +31,11 @@ app.config(['$stateProvider', '$urlRouterProvider', 'CONFIG', function ($statePr
             templateUrl: templates+CONFIG.theme+'/lockscreen.html',
             controller: 'LockController'
         })
+        .state('settings', {
+            url: "/settings",
+            templateUrl: templates+CONFIG.theme+'/settings.html',
+            controller: 'SettingsController'
+        })
         .state('404',{
             url: "/404",
             templateUrl: templates+CONFIG.theme+'/404.html',
