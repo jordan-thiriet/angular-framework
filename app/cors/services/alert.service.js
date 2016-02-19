@@ -33,11 +33,12 @@ app.service('$alert',['toaster', '$filter' ,function(toaster, $filter) {
     /**
      * Alert success
      * @param msg
+     * @param title
      */
-    this.success = function(msg) {
+    this.success = function(msg, title) {
         toaster.pop({
             type : 'success',
-            title : $filter('translate')('SUCCESS'),
+            title : title ? title : null,
             body: msg,
             showCloseButton: true
         });

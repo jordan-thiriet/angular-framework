@@ -76,9 +76,11 @@ fitnessModule
 
         refresh();
     }])
-    .controller('FitnessAddController',['$scope', '$rest', '$alert', '$filter', '$tools', function ($scope, $rest, $alert, $filter, $tools) {
+    .controller('FitnessAddController',['$scope', '$rest', '$alert', '$filter', '$tools', '$settings', function ($scope, $rest, $alert, $filter, $tools, $settings) {
 
         $scope.fitness = {};
+
+        $scope.settings = $settings.get();
 
         var date = new Date;
         $scope.date = date.getFullYear()+'-'+(parseInt(date.getMonth())+1)+'-'+date.getDate()+' 08:00:00';

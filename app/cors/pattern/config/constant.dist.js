@@ -30,6 +30,7 @@ angular.module('app').constant('CONFIG', {
     }
 }).constant('CONFIG_REST', {
     server: '$server',
+    urlPublic: '$urlPublic',
     clientId: '$clientId',
     clientSecret: '$clientSecret',
     url_token: 'oauth/v2/token',

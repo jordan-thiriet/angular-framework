@@ -1,17 +1,38 @@
 'use strict';
 
 app
-    .controller('UserEditController',['$rootScope', '$scope', '$rest', 'User', '$alert','$filter', function ($rootScope, $scope, $rest, User, $alert, $filter) {
+    .controller('UserEditController',['$rootScope', '$scope', '$rest', 'User', '$alert','$filter', 'Restangular', function ($rootScope, $scope, $rest, User, $alert, $filter, Restangular) {
+
+        $scope.myImage='';
+        $scope.myCroppedImage = null;
+        var changePicture = false;
+
         $rest.getOne('user',$rootScope.user.id).then(function(data) {
             $scope.userEdit = data.data;
         });
 
         $scope.save = function() {
+            $scope.userEdit.picture = changePicture ? $scope.myCroppedImage : null;
             $scope.userEdit.save().then(function() {
                 User.updateUser($scope.userEdit);
                 $alert.success($filter('translate')('USER.PROFIL_UPDATED'));
             });
-        }
+        };
+
+        var handleFileSelect=function(evt) {
+            var file=evt.currentTarget.files[0];
+            var fd = new FormData();
+            fd.append('file', file);
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+                changePicture = true;
+                $scope.$apply(function($scope){
+                    $scope.myImage=evt.target.result;
+                });
+            };
+            reader.readAsDataURL(file);
+        };
+        angular.element(document.querySelector('#fileInput')).on('change',handleFileSelect);
     }])
     .controller('UserChangePasswordController',['$rootScope', '$scope', '$rest', 'User', '$alert','$filter', function ($rootScope, $scope, $rest, User, $alert, $filter) {
         $scope.change = function(oldpwd, newpwd, confpwd) {

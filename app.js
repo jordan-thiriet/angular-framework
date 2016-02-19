@@ -19,6 +19,7 @@ var app = angular.module('app',
         'homeModule',
 		'fitnessModule',
         'highcharts-ng',
+        'ngImgCrop'
 		//InsertNewModule
     ])
 
@@ -29,10 +30,14 @@ var app = angular.module('app',
         translationService.init();
         $rootScope.appName = CONFIG.appName;
         $rootScope.version = CONFIG.version;
+        $rootScope.urlPublic = CONFIG_REST.urlPublic;
         $rootScope.checkLogin = CONFIG.login;
         $rootScope.chartColor = CONFIG.chartColor;
         $rootScope.showHeader = true;
         $rootScope.showFooter = true;
+        $rootScope.lastPage = null;
+
+        $rootScope.urlSocket = 'http://localhost:8080/socket.io/socket.io.js';
 
         $rest.init();
 

@@ -49,6 +49,7 @@ app.service('User',['$rootScope', '$localStore', '$state', '$http', 'md5', funct
         $rootScope.user.lastname = user.lastname;
         $rootScope.user.email = user.email;
         $rootScope.user.password = this.encodePassword(password);
+        $rootScope.user.picture = $rootScope.urlPublic+'/pictures/'+$rootScope.user.id+'.png';
         this.save();
     };
 
@@ -61,6 +62,7 @@ app.service('User',['$rootScope', '$localStore', '$state', '$http', 'md5', funct
         $rootScope.user.firstname = user.firstname;
         $rootScope.user.lastname = user.lastname;
         $rootScope.user.email = user.email;
+        $rootScope.user.picture = $rootScope.urlPublic+'/pictures/'+$rootScope.user.id+'.png?'+ new Date().getTime();
         this.save();
     };
 
@@ -96,6 +98,7 @@ app.service('User',['$rootScope', '$localStore', '$state', '$http', 'md5', funct
     this.logout = function() {
         delete $rootScope.user;
         $localStore.remove('user');
+        $localStore.put('last-page', $state.$current.name);
         this.init();
         $state.go('login');
     }

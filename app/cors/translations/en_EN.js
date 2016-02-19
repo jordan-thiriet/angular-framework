@@ -33,6 +33,7 @@ app.config(['$translateProvider', function($translateProvider) {
         'USER.NEW_PWD_NOT_SAME_CONF_PWD' : 'The password confirmation is not correct',
         'USER.PWD_UPDATED' : 'Password has been updated',
         'USER.SETTINGS': 'Settings',
+        'USER.SETTINGS_SAVED': 'Settings saved',
         'ERROR.SERVICE_UNVAIBLE': 'Service unvaible',
         'ERROR.WRONG_LOGIN_PASSWORD': 'Wrong login or password',
         'ERROR.INVALID_EMAIL': 'Invalid email',

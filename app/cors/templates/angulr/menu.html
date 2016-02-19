@@ -8,7 +8,7 @@
             <i ng-class="menu.icon"></i> {{ menu.title | translate }}
         </a>
         <ul class="dropdown-menu" role="menu" ng-if="menu.submenu !== undefined">
-            <li ng-repeat="submenu in menu.submenu">
+            <li ng-repeat="submenu in menu.submenu|orderBy:'position'">
                 <a ui-sref="{{submenu.sref}}" ng-click="clickLink(menu)">
                     <i ng-class="submenu.icon"></i> {{ submenu.title | translate }}
                 </a>

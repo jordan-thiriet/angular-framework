@@ -11,7 +11,7 @@
                             <label class="col-sm-3 control-label text-left">{{ setting.translation | translate }}</label>
                             <div ng-switch-when="select" class="col-sm-9 no-padding-left">
                                 <ui-select ng-model="setting.value" theme="bootstrap">
-                                    <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected}}</ui-select-match>
+                                    <ui-select-match>{{$select.selected}}</ui-select-match>
                                     <ui-select-choices repeat="item in setting.lists | filter: $select.search">
                                         <span>{{item}}</span>
                                     </ui-select-choices>
@@ -19,11 +19,11 @@
                             </div>
                             <div class="checkbox" ng-switch-when="checkbox">
                                 <label class="i-checks i-checks-md">
-                                    <input type="checkbox" checked><i></i>
+                                    <input type="checkbox" ng-model="setting.value"><i></i>
                                 </label>
                             </div>
                             <label class="i-switch i-switch-md m-t-xs m-r {{setting.css}}" ng-switch-when="switch">
-                                <input type="checkbox" checked>
+                                <input type="checkbox" ng-model="setting.value">
                                 <i></i>
                             </label>
                             <input type="{{setting.type}}" class="form-control" ng-model="setting.value" id="{{key}}" ng-switch-default/>

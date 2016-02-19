@@ -64,6 +64,9 @@ init.config = function() {
                                 Server: {
                                     description: 'Server of rest api'
                                 },
+                                UrlPublic: {
+                                    description: 'Url public of folder rest api'
+                                },
                                 ClientId: {
                                     description: 'Client Id of rest api'
                                 },
@@ -74,6 +77,7 @@ init.config = function() {
                         };
                         prompt.get(schema, function (err, result) {
                             infos.Server = result.Server;
+                            infos.UrlPublic = result.UrlPublic;
                             infos.ClientId = result.ClientId;
                             infos.ClientSecret = result.ClientSecret;
                             writeFile(infos);
@@ -127,6 +131,13 @@ init.config = function() {
             replace({
                 regex: /\$server/g,
                 replacement: infos.Server,
+                paths: ['../app/cors/config/'],
+                recursive: true,
+                silent: true
+            });
+            replace({
+                regex: /\$urlPublic/g,
+                replacement: infos.UrlPublic,
                 paths: ['../app/cors/config/'],
                 recursive: true,
                 silent: true

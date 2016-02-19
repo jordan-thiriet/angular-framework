@@ -15,7 +15,6 @@ app.filter('toDate',[ function () {
         if(newDate.length === 3) {
             newDate[3] = newDate[4] = newDate[5] = '00';
         }
-        console.log(newDate);
         return new Date(newDate[0], newDate[1]-1, newDate[2], newDate[3], newDate[4], newDate[5]);
     }
 }]);
