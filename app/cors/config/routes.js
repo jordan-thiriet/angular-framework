@@ -33,6 +33,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'CONFIG', function ($statePr
         })
         .state('settings', {
             url: "/settings",
+            cache: false,
             templateUrl: templates+CONFIG.theme+'/settings.html',
             controller: 'SettingsController'
         })

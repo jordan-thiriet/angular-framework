@@ -1,14 +1,21 @@
 'use strict';
 
 app
-    .controller('UserEditController',['$rootScope', '$scope', '$rest', 'User', '$alert','$filter', 'Restangular', function ($rootScope, $scope, $rest, User, $alert, $filter, Restangular) {
+    .controller('UserEditController',['$rootScope', '$scope', '$rest', 'User', '$alert','$filter', '$tools', function ($rootScope, $scope, $rest, User, $alert, $filter, $tools) {
 
         $scope.myImage='';
         $scope.myCroppedImage = null;
         var changePicture = false;
 
+        console.log($tools.jsonCompress($rootScope.user));
+
         $rest.getOne('user',$rootScope.user.id).then(function(data) {
             $scope.userEdit = data.data;
+            $tools.imgToBase64($rootScope.urlPublic+'/pictures/'+$scope.userEdit.id+'.png',function(img) {
+                $scope.$apply(function() {
+                    $scope.myCroppedImage = img;
+                });
+            },'image/png');
         });
 
         $scope.save = function() {

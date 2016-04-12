@@ -4,17 +4,17 @@
   "description": "### Init config",
   "main": "GruntFile.js",
   "dependencies": {
-    "grunt-contrib-concat": "^0.5.1",
-    "grunt": "^0.4.5",
     "colors": "^1.1.2",
+    "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.7.0",
-    "grunt-usemin": "^3.1.1",
+    "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-copy": "^0.8.2",
-    "grunt-contrib-uglify": "^0.11.0",
     "grunt-contrib-cssmin": "^0.14.0",
-    "replace": "^0.3.0",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-usemin": "^3.1.1",
+    "ncp": "^2.0.0",
     "prompt": "^0.2.14",
-    "ncp": "^2.0.0"
+    "replace": "^0.3.0"
   },
   "devDependencies": {},
   "repository": {
