@@ -18,7 +18,9 @@
             <input type="checkbox" ng-model="setting.value">
             <i></i>
         </label>
-        <input type="{{setting.type}}" class="form-control" ng-model="setting.value" id="{{key}}" ng-switch-default/>
+        <div class="col-sm-9 no-padding-left">
+            <input type="{{setting.type}}" class="form-control col-sm-9" ng-model="setting.value" id="{{key}}" placeholder="{{setting.placeholder}}" ng-switch-default/>
+        </div>
 
     </div>
     <button type="submit" class="btn btn-sm btn-primary">{{ 'SAVE' | translate }}</button>

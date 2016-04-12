@@ -32,7 +32,8 @@ var fitnessModule = angular.module('fitnessModule', ['app']).run(['$rootScope', 
                 value: '',
                 translation: 'FITNESS.UNITY_WEIGHT',
                 type: 'text',
-                css: 'bg-info'
+                css: 'bg-info',
+                placeholder: 'Mettre un texte'
             }
         };
 
