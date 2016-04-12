@@ -11,7 +11,7 @@ app.config(['$translateProvider', function ($translateProvider) {
         'FITNESS.MUSCULE_MASS': 'Masse musculaire',
         'FITNESS.DATE': 'Date',
         'FITNESS.MEASURE_CREATED': 'Mesures enregistrées',
-        'FITNESS.MEASURE_NOT_NUMBER': 'Toutes les mesures doivent être des nombres',
+        'FITNESS.MEASURE_NOT_NUMBER': 'Le champ doit être un nombre',
         'FITNESS.UNITY_WEIGHT': 'Unité de mesure pour le poids'
     });
 }]);

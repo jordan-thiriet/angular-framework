@@ -76,14 +76,18 @@ fitnessModule
 
         refresh();
     }])
-    .controller('FitnessAddController',['$scope', '$rest', '$alert', '$filter', '$tools', '$settings', function ($scope, $rest, $alert, $filter, $tools, $settings) {
+    .controller('FitnessAddController',['$scope', '$rest', '$alert', '$filter', '$tools', '$settings', '$http', function ($scope, $rest, $alert, $filter, $tools, $settings, $http) {
 
         $scope.fitness = {};
 
-        $scope.settings = $settings.get();
+        //$scope.settings = $settings.get();
 
         var date = new Date;
-        $scope.date = date.getFullYear()+'-'+(parseInt(date.getMonth())+1)+'-'+date.getDate()+' 08:00:00';
+        $scope.fitness.date = date.getFullYear()+'-'+(parseInt(date.getMonth())+1)+'-'+date.getDate()+' 08:00:00';
+
+        $http({method: 'GET', url: './app/modules/FitnessModule/form.json'}).success(function(data) {
+            $scope.form = data;
+        });
 
         $scope.save = function() {
 
@@ -93,8 +97,6 @@ fitnessModule
                 $alert.error($filter('translate')('FITNESS.MEASURE_NOT_NUMBER'));
                 return false;
             }
-
-            $scope.fitness.date = $scope.date;
 
             if($scope.fitness.date !== undefined) {
                 $scope.fitness.date = $tools.getTimestamp($scope.fitness.date);

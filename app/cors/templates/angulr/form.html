@@ -1,8 +1,8 @@
-<form role="form" ng-submit="save()" class="form-horizontal">
+<form role="form" ng-submit="saveForm()" class="form-horizontal">
     <div class="form-group" ng-repeat="(key, setting) in settings" ng-switch="setting.type">
         <label class="col-sm-3 control-label text-left">{{ setting.translation | translate }}</label>
         <div ng-switch-when="select" class="col-sm-9 no-padding-left">
-            <ui-select ng-model="setting.value" theme="bootstrap">
+            <ui-select ng-model="object[key]" theme="bootstrap">
                 <ui-select-match>{{$select.selected}}</ui-select-match>
                 <ui-select-choices repeat="item in setting.lists | filter: $select.search">
                     <span>{{item}}</span>
@@ -11,16 +11,17 @@
         </div>
         <div class="checkbox" ng-switch-when="checkbox">
             <label class="i-checks i-checks-md">
-                <input type="checkbox" ng-model="setting.value"><i></i>
+                <input type="checkbox" ng-model="object[key]"><i></i>
             </label>
         </div>
         <label class="i-switch i-switch-md m-t-xs m-r {{setting.css}}" ng-switch-when="switch">
-            <input type="checkbox" ng-model="setting.value">
+            <input type="checkbox" ng-model="object[key]">
             <i></i>
         </label>
         <div class="col-sm-9 no-padding-left">
-            <input type="{{setting.type}}" class="form-control col-sm-9" ng-model="setting.value" id="{{key}}" placeholder="{{setting.placeholder}}" ng-switch-default/>
+            <input type="{{setting.type}}" class="form-control col-sm-9" ng-model="object[key]" id="{{key}}" placeholder="{{setting.placeholder}}" ng-switch-default/>
         </div>
+        <span class="help-block m-b-none text-danger col-sm-offset-3" ng-if="setting.error">* {{setting.error | translate}}</span>
 
     </div>
     <button type="submit" class="btn btn-sm btn-primary">{{ 'SAVE' | translate }}</button>

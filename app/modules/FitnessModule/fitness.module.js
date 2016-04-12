@@ -23,13 +23,11 @@ var fitnessModule = angular.module('fitnessModule', ['app']).run(['$rootScope', 
 
         var settings = {
             fitness_type: {
-                value: 'Kg',
                 translation: 'FITNESS.UNITY_WEIGHT',
                 type: 'select',
                 lists: ['Kg', 'Lbs']
             },
             fitness_test: {
-                value: '',
                 translation: 'FITNESS.UNITY_WEIGHT',
                 type: 'text',
                 css: 'bg-info',

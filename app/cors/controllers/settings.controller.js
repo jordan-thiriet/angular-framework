@@ -1,16 +1,23 @@
 'use strict';
 
 app
-    .controller('SettingsController',['$scope', '$settings', '$rest', '$alert', '$filter', function ($scope, $settings, $rest, $alert, $filter) {
+    .controller('SettingsController',['$scope', '$settings', '$rest', '$alert', '$filter', '$rootScope', function ($scope, $settings, $rest, $alert, $filter, $rootScope) {
 
         $scope.settings = $settings.get();
 
-        $scope.types = {
-            select: 'select'
+        $scope.object = {
+            fitness_type: "Kg",
+            fitness_test: "test"
         };
 
-        $scope.save = function() {
-            $rest.post('settings', {settings: $scope.settings}).then(function() {
+        $rest.getOne('settings').then(function (data) {
+            $scope.object = data.data.settings;
+
+            console.log($scope.object);
+        });
+
+        $rootScope.saveTest = function() {
+            $rest.post('settings', {settings: $scope.object}).then(function() {
                 $settings.save($scope.settings);
                 $alert.success($filter('translate')('USER.SETTINGS_SAVED'));
                 return true;

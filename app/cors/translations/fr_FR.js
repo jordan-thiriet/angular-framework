@@ -35,6 +35,7 @@ app.config(['$translateProvider', function ($translateProvider) {
         'USER.PWD_UPDATED' : 'Le mot de passe a été modifié',
         'USER.SETTINGS': 'Paramètres',
         'USER.SETTINGS_SAVED': 'Paramètres enregistrés',
+        'FORM.REQUIRED': 'Ce champ est obligatoire',
         'ERROR.SERVICE_UNVAIBLE': 'Service non disponible',
         'ERROR.WRONG_LOGIN_PASSWORD': 'Mauvais login mot de passe',
         'ERROR.INVALID_EMAIL': 'Email non valide',

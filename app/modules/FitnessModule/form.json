@@ -1,0 +1,31 @@
+{
+  "date": {
+    "translation": "FITNESS.DATE",
+    "type": "text",
+    "placeholder": "YYYY-MM-DD h:i:s"
+  },
+  "weight": {
+    "translation": "FITNESS.WEIGHT",
+    "type": "text",
+    "regex": {"value": "^[0-9]+$", "translation": "FITNESS.MEASURE_NOT_NUMBER"},
+    "required": true
+  },
+  "fat": {
+    "translation": "FITNESS.FAT_MASS",
+    "type": "text",
+    "regex": {"value": "^[0-9]+$", "translation": "FITNESS.MEASURE_NOT_NUMBER"},
+    "required": true
+  },
+  "fluids": {
+    "translation": "FITNESS.FLUIDS_MASS",
+    "type": "text",
+    "regex": {"value": "^[0-9]+$", "translation": "FITNESS.MEASURE_NOT_NUMBER"},
+    "required": true
+  },
+  "muscule": {
+    "translation": "FITNESS.MUSCULE_MASS",
+    "type": "text",
+    "regex": {"value": "^[0-9]+$", "translation": "FITNESS.MEASURE_NOT_NUMBER"},
+    "required": true
+  }
+}

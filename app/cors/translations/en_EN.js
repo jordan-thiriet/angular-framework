@@ -34,6 +34,7 @@ app.config(['$translateProvider', function($translateProvider) {
         'USER.PWD_UPDATED' : 'Password has been updated',
         'USER.SETTINGS': 'Settings',
         'USER.SETTINGS_SAVED': 'Settings saved',
+        'FORM.REQUIRED': 'The field must be required',
         'ERROR.SERVICE_UNVAIBLE': 'Service unvaible',
         'ERROR.WRONG_LOGIN_PASSWORD': 'Wrong login or password',
         'ERROR.INVALID_EMAIL': 'Invalid email',

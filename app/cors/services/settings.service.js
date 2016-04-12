@@ -9,26 +9,6 @@ app.service('$settings',['$localStore', '$rest', '$timeout', function($localStor
      * Init settings
      */
     this.init = function() {
-        var self = this;
-
-        // When app is loaded
-        angular.element(document).ready(function() {
-            $timeout(function() {
-                self.loadData();
-            }, 500);
-        });
-    };
-
-    /**
-     * Load settings from api
-     */
-    this.loadData = function() {
-        var self = this;
-        $rest.getOne('settings').then(function (data) {
-            if (data.data && data.data.settings) {
-                self.setData(data.data.settings);
-            }
-        });
     };
 
     /**

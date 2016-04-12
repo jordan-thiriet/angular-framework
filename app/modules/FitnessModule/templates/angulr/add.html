@@ -7,29 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading font-bold">{{ 'USER.EDIT_PROFILE' | translate }}</div>
                 <div class="panel-body">
-                    <form role="form" ng-submit="save()">
-                        <div class="form-group">
-                            <label>{{ 'FITNESS.DATE' | translate }}</label>
-                            <input type="text" placeholder="YYYY-MM-DD h:i:s" class="form-control" ng-model="date">
-                        </div>
-                        <div class="form-group">
-                            <label>{{ 'FITNESS.WEIGHT' | translate }} ({{settings.fitness_type.value}})</label>
-                            <input type="number" class="form-control" ng-model="fitness.weight">
-                        </div>
-                        <div class="form-group">
-                            <label>{{ 'FITNESS.FAT_MASS' | translate }}</label>
-                            <input type="number" class="form-control" ng-model="fitness.fat">
-                        </div>
-                        <div class="form-group">
-                            <label>{{ 'FITNESS.FLUIDS_MASS' | translate }}</label>
-                            <input type="number" class="form-control" ng-model="fitness.fluids">
-                        </div>
-                        <div class="form-group">
-                            <label>{{ 'FITNESS.MUSCULE_MASS' | translate }}</label>
-                            <input type="number" class="form-control" ng-model="fitness.muscule">
-                        </div>
-                        <button type="submit" class="btn btn-sm btn-primary">{{ 'SAVE' | translate }}</button>
-                    </form>
+                    <cors-form settings="form" object="fitness" save="save"></cors-form>
                 </div>
             </div>
         </div>
