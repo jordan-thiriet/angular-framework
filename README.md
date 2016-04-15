@@ -1,4 +1,4 @@
-# angular-framework
+# gpp-angular
 
 ### Init config
 
