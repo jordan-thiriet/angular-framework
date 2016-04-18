@@ -73,6 +73,16 @@ app.service('$rest',['CONFIG', '$firebase', '$api', function(CONFIG, $firebase, 
     };
 
     /**
+     * Update an resource
+     * @param path
+     * @param object
+     * @returns {*}
+     */
+    this.putObject = function(path, object) {
+        return this.rest.putObject(path, object);
+    };
+
+    /**
      * Remove an resource
      * @param {object} object
      * @returns {*}

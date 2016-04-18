@@ -1,7 +1,7 @@
 'use strict';
 
 app
-    .controller('UserEditController',['$rootScope', '$scope', '$rest', 'User', '$alert','$filter', '$tools', function ($rootScope, $scope, $rest, User, $alert, $filter, $tools) {
+    .controller('UserEditController',['$rootScope', '$scope', '$rest', 'User', '$alert','$filter', '$tools', 'Restangular', '$http', function ($rootScope, $scope, $rest, User, $alert, $filter, $tools, Restangular, $http) {
 
         $scope.myImage='';
         $scope.myCroppedImage = null;
@@ -16,15 +16,24 @@ app
             },'image/png');
         });
 
+        $http({method: 'GET', url: './app/cors/form/user_edit.form.json'}).success(function(data) {
+            $scope.form = data;
+        });
+
         $scope.save = function() {
             $scope.userEdit.picture = changePicture ? $scope.myCroppedImage : null;
-            $scope.userEdit.save().then(function() {
+            $rest.putObject('user/'+$scope.userEdit.id,{user: {
+                lastname:$scope.userEdit.lastname,
+                firstname: $scope.userEdit.firstname,
+                username: $scope.userEdit.username,
+                email:$scope.userEdit.email
+            }}).then(function() {
                 User.updateUser($scope.userEdit);
                 $alert.success($filter('translate')('USER.PROFIL_UPDATED'));
             });
         };
 
-        var handleFileSelect=function(evt) {
+        /*var handleFileSelect=function(evt) {
             var file=evt.currentTarget.files[0];
             var fd = new FormData();
             fd.append('file', file);
@@ -37,9 +46,9 @@ app
             };
             reader.readAsDataURL(file);
         };
-        angular.element(document.querySelector('#fileInput')).on('change',handleFileSelect);
+        angular.element(document.querySelector('#fileInput')).on('change',handleFileSelect);*/
     }])
-    .controller('UserChangePasswordController',['$rootScope', '$scope', '$rest', 'User', '$alert','$filter', function ($rootScope, $scope, $rest, User, $alert, $filter) {
+    .controller('UserChangePasswordController',['$rootScope', '$scope', '$rest', 'User', '$alert','$filter', 'Restangular', function ($rootScope, $scope, $rest, User, $alert, $filter, Restangular) {
         $scope.change = function(oldpwd, newpwd, confpwd) {
 
             if (!User.isSamePassword(oldpwd)) {
@@ -49,7 +58,7 @@ app
             } else if(newpwd !== confpwd) {
                 $alert.error($filter('translate')('USER.NEW_PWD_NOT_SAME_CONF_PWD'));
             } else {
-                $rest.post('user/change-password/'+$rootScope.user.id,{newPwd: newpwd}).then(function() {
+                $rest.putObject('user/change-password', {password:newpwd}).then(function(data) {
                     User.updatePassword(newpwd);
                     $alert.success($filter('translate')('USER.PWD_UPDATED'));
                 });

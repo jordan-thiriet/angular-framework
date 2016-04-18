@@ -92,6 +92,17 @@ app.service('$api',['Restangular', '$log', '$q', 'errorsService', 'CONFIG_REST',
     };
 
     /**
+     * Update an resource
+     * @param path
+     * @param object
+     * @returns {*}
+     */
+    this.putObject = function(path, object) {
+        var restangularPut = Restangular.restangularizeElement(null, object, 'api/'+path);
+        return restangularPut.put();
+    };
+
+    /**
      * Remove resource with method DELETE
      * @param {string} object
      * @returns {*}
