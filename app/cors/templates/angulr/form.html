@@ -1,6 +1,6 @@
 <form role="form" ng-submit="saveForm()" class="form-horizontal">
     <div class="form-group" ng-repeat="(key, setting) in settings" ng-switch="setting.type" ng-class="{'has-error':setting.error}">
-        <label class="col-sm-3 control-label text-left">{{ setting.translation | translate }}</label>
+        <label class="col-sm-3 control-label text-left">{{ setting.translation | translate }} <span ng-if="setting.required">*</span></label>
         <div ng-switch-when="select" class="col-sm-9">
             <ui-select ng-model="object[key]" theme="bootstrap">
                 <ui-select-match>{{$select.selected}}</ui-select-match>
@@ -21,7 +21,7 @@
         <div class="col-sm-9">
             <input type="{{setting.type}}" class="form-control col-sm-9" ng-model="object[key]" id="{{key}}" placeholder="{{setting.placeholder}}" ng-switch-default/>
         </div>
-        <span class="help-block m-b-none text-danger col-sm-offset-3" ng-if="setting.error">* {{setting.error | translate}}</span>
+        <span class="help-block m-b-none text-danger col-sm-offset-3 col-sm-9" ng-if="setting.error">* {{setting.error | translate}}</span>
 
     </div>
     <button type="submit" class="btn btn-sm btn-primary">{{ 'SAVE' | translate }}</button>

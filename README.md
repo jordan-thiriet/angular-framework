@@ -42,3 +42,40 @@ Icon : Font Awesome icon of your module (fa-xxxx)
 ```
 grunt build:angulr
 ```
+
+### Form
+
+Object 
+
+Field :
+
+```
+translation : "EXAMPLE.TEST"
+type : type of input html (email, password, checkbox, switch, text, radio,...)
+required : true | false
+regex : {"value" : "regex", "translation" : "EXAMPLE.TEST"}
+validation : {"value" : "expression", "translation" : "EXAMPLE.TEST"}
+```
+
+Example : 
+
+```
+{
+    "email": {
+        "translation": "USER.EMAIL",
+        "type": "email",
+        "required": true
+    },
+    "lastname": {
+        "translation": "USER.LASTNAME",
+        "type": "text",
+        "required": true
+    },
+    "password": {
+        "translation": "USER.PASSWORD",
+        "type": "password",
+        "required": true,
+        "validation": {"value": "scope.object['password'] === scope.object['confpwd']", "translation": "USER.NEW_PWD_NOT_SAME_CONF_PWD" }
+    }
+}
+```

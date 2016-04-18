@@ -48,21 +48,20 @@ app
         };
         angular.element(document.querySelector('#fileInput')).on('change',handleFileSelect);*/
     }])
-    .controller('UserChangePasswordController',['$rootScope', '$scope', '$rest', 'User', '$alert','$filter', 'Restangular', function ($rootScope, $scope, $rest, User, $alert, $filter, Restangular) {
-        $scope.change = function(oldpwd, newpwd, confpwd) {
+    .controller('UserChangePasswordController',['$rootScope', '$scope', '$rest', 'User', '$alert','$filter', '$http', function ($rootScope, $scope, $rest, User, $alert, $filter, $http) {
 
-            if (!User.isSamePassword(oldpwd)) {
-                $alert.error($filter('translate')('USER.WRONG_OLD_PWD'));
-            } else if (oldpwd === newpwd) {
-                $alert.error($filter('translate')('USER.NEW_PWD_SAME_OLD_PWD'));
-            } else if(newpwd !== confpwd) {
-                $alert.error($filter('translate')('USER.NEW_PWD_NOT_SAME_CONF_PWD'));
-            } else {
-                $rest.putObject('user/change-password', {password:newpwd}).then(function(data) {
-                    User.updatePassword(newpwd);
-                    $alert.success($filter('translate')('USER.PWD_UPDATED'));
-                });
-            }
+        $scope.userPwd = {};
+
+        $http({method: 'GET', url: './app/cors/form/change_password.form.json'}).success(function(data) {
+            $scope.form = data;
+        });
+
+        $scope.save = function() {
+            $rest.putObject('user/change-password', {password:$scope.userPwd.newpwd}).then(function() {
+                User.updatePassword($scope.userPwd.newpwd);
+                $alert.success($filter('translate')('USER.PWD_UPDATED'));
+                $scope.userPwd = {};
+            });
         }
     }])
     .controller('ForgotPasswordController',['$scope', '$rest', function ($scope, $rest) {

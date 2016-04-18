@@ -41,6 +41,8 @@ app.config(['$translateProvider', function($translateProvider) {
         'ERROR.UNKNOW_EMAIL': 'Unknow email',
         'ERROR.ACCESS_DENIED': 'Access denied',
         'ERROR.NOT_FOUND': 'Resource not found',
+        'ERROR.EMAIL_NOT_VALID': 'Email invalid',
+        'ERROR.NUMBER_NOT_VALID': 'The field must be a number',
         '404.TITLE': '404',
         'ERROR': 'Error'
     });

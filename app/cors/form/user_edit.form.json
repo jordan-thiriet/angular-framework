@@ -1,7 +1,7 @@
 {
     "email": {
         "translation": "USER.EMAIL",
-        "type": "text",
+        "type": "email",
         "required": true
     },
     "lastname": {

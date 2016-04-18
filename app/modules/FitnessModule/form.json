@@ -7,7 +7,7 @@
   "weight": {
     "translation": "FITNESS.WEIGHT",
     "type": "text",
-    "regex": {"value": "^[0-9]+$", "translation": "FITNESS.MEASURE_NOT_NUMBER"},
+    "validation": "number",
     "required": true
   },
   "fat": {
@@ -19,7 +19,7 @@
   "fluids": {
     "translation": "FITNESS.FLUIDS_MASS",
     "type": "text",
-    "regex": {"value": "^[0-9]+$", "translation": "FITNESS.MEASURE_NOT_NUMBER"},
+    "validation": "number",
     "required": true
   },
   "muscule": {
