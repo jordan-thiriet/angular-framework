@@ -59,6 +59,8 @@ validation : {"value" : "expression", "translation" : "EXAMPLE.TEST"}
 
 Example : 
 
+#### Json
+
 ```
 {
     "email": {
@@ -78,4 +80,25 @@ Example :
         "validation": {"value": "scope.object['password'] === scope.object['confpwd']", "translation": "USER.NEW_PWD_NOT_SAME_CONF_PWD" }
     }
 }
+```
+
+#### Controller
+
+$scope.userPwd = {};
+
+```
+$scope.userEdit = {};
+$http({method: 'GET', url: './app/cors/form/change_password.form.json'}).success(function(data) {
+    $scope.form = data;
+});
+
+$scope.save = function() {
+    $rest.putObject('user/edit', {password:$scope.userEdit});
+}
+```
+
+#### View
+
+```
+<cors-form settings="form" object="userEdit" save="save"></cors-form>
 ```
