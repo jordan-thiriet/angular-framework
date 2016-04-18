@@ -87,11 +87,10 @@ Example :
 $scope.userPwd = {};
 
 ```
-$scope.userEdit = {};
 $http({method: 'GET', url: './app/cors/form/change_password.form.json'}).success(function(data) {
     $scope.form = data;
 });
-
+$scope.userEdit = {};
 $scope.save = function() {
     $rest.putObject('user/edit', {password:$scope.userEdit});
 }
