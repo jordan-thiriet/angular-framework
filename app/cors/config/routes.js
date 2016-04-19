@@ -20,6 +20,11 @@ app.config(['$stateProvider', '$urlRouterProvider', 'CONFIG', function ($statePr
             templateUrl: templates+CONFIG.theme+'/user_change_password.html',
             controller: 'UserChangePasswordController'
         })
+        .state('change_avatar', {
+            url: "/change-avatar",
+            templateUrl: templates+CONFIG.theme+'/user_change_avatar.html',
+            controller: 'UserChangeAvatarController'
+        })
         .state('forgot_password', {
             url: "/forgot-password",
             cache: false,

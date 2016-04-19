@@ -33,6 +33,7 @@ app.config(['$translateProvider', function ($translateProvider) {
         'USER.NEW_PWD_SAME_OLD_PWD' : 'Le nouveau mot de passe est le même que le précedent',
         'USER.NEW_PWD_NOT_SAME_CONF_PWD' : 'La confirmation de mot de passe n\'est pas correcte',
         'USER.PWD_UPDATED' : 'Le mot de passe a été modifié',
+        'USER.CHANGE_AVATAR': 'Changer ma photo de profil',
         'USER.SETTINGS': 'Paramètres',
         'USER.SETTINGS_SAVED': 'Paramètres enregistrés',
         'FORM.REQUIRED': 'Ce champ est obligatoire',

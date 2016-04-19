@@ -36,7 +36,7 @@
         <li class="dropdown" dropdown>
             <a href class="dropdown-toggle clear" dropdown-toggle>
               <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
-                <img ng-src="{{user.picture}}" alt="...">
+                <img ng-src="{{user.picture}}" alt="picture">
                 <i class="on md b-white bottom"></i>
               </span>
                 <span class="hidden-sm hidden-md">{{ user.username }}</span> <b class="caret"></b>
@@ -54,6 +54,9 @@
                 </li>
                 <li>
                     <a ui-sref="settings"><i class="fa fa-cogs"></i> {{ 'USER.SETTINGS' | translate }}</a>
+                </li>
+                <li>
+                    <a ui-sref="change_avatar"><i class="fa fa-cogs"></i> {{ 'USER.CHANGE_AVATAR' | translate }}</a>
                 </li>
                 <li>
                     <a ui-sref="change_password"><i class="fa fa-key"></i> {{ 'USER.CHANGE_PWD' | translate }}</a>

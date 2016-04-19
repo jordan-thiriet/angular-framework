@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('$tools',[ function() {
+app.service('$tools',[ '$q', function($q) {
 
     /**
      * Load assets in javascript
@@ -95,5 +95,25 @@ app.service('$tools',[ function() {
         };
         img.src = url;
     };
+
+    /**
+     * check if url of image exists
+     * @param url
+     * @returns {*}
+     */
+    this.isImageExists = function(url) {
+        var deferred = $q.defer();
+
+        var image = new Image();
+        image.onerror = function() {
+            deferred.resolve(false);
+        };
+        image.onload = function() {
+            deferred.resolve(true);
+        };
+        image.src = url;
+
+        return deferred.promise;
+    }
 
 }]);

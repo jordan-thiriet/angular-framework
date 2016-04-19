@@ -2,7 +2,7 @@
 /**
  * Service to manage User
  */
-app.service('User',['$rootScope', '$localStore', '$state', '$http', 'md5', function($rootScope, $localStore, $state, $http, md5) {
+app.service('User',['$rootScope', '$localStore', '$state', '$http', 'md5', '$tools', function($rootScope, $localStore, $state, $http, md5, $tools) {
     /**
      * Init User
      */
@@ -49,7 +49,7 @@ app.service('User',['$rootScope', '$localStore', '$state', '$http', 'md5', funct
         $rootScope.user.lastname = user.lastname;
         $rootScope.user.email = user.email;
         $rootScope.user.password = this.encodePassword(password);
-        $rootScope.user.picture = $rootScope.urlPublic+'/pictures/'+$rootScope.user.id+'.png';
+        this.updatePicture();
         this.save();
     };
 
@@ -62,7 +62,7 @@ app.service('User',['$rootScope', '$localStore', '$state', '$http', 'md5', funct
         $rootScope.user.firstname = user.firstname;
         $rootScope.user.lastname = user.lastname;
         $rootScope.user.email = user.email;
-        $rootScope.user.picture = $rootScope.urlPublic+'/pictures/'+$rootScope.user.id+'.png?'+ new Date().getTime();
+        this.updatePicture();
         this.save();
     };
 
@@ -90,6 +90,22 @@ app.service('User',['$rootScope', '$localStore', '$state', '$http', 'md5', funct
      */
     this.encodePassword = function(password) {
         return md5.createHash(password)
+    };
+
+    /**
+     * Update picture
+     */
+    this.updatePicture = function() {
+        var that = this;
+        var baseUrl = $rootScope.urlPublic+'/images/avatar/';
+        $tools.isImageExists(baseUrl+$rootScope.user.id+'.png').then(function(exist) {
+            if(exist) {
+                $rootScope.user.picture = baseUrl+$rootScope.user.id+'.png?'+ new Date().getTime();
+            } else {
+                $rootScope.user.picture = baseUrl+'avatar.png?'+ new Date().getTime();
+            }
+            that.save();
+        });
     };
 
     /**
