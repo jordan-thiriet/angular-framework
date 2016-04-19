@@ -44,7 +44,7 @@ app
             });
         }
     }])
-    .controller('UserChangeAvatarController',['$scope', '$tools', '$rootScope', '$rest', 'User', function ($scope, $tools, $rootScope, $rest, User) {
+    .controller('UserChangeAvatarController',['$scope', '$tools', '$rootScope', '$rest', 'User', '$alert', '$filter', function ($scope, $tools, $rootScope, $rest, User, $alert, $filter) {
 
         $scope.myImage='';
         $scope.myCroppedImage = null;
@@ -58,8 +58,20 @@ app
 
         $scope.save = function() {
             var picture = changePicture ? $scope.myCroppedImage : null;
-            $rest.putObject('user/upload-avatar',{picture: picture}).then(function() {
+            if(picture) {
+                $rest.putObject('user/upload-avatar',{picture: picture}).then(function() {
+                    User.updatePicture();
+                    $alert.success($filter('translate')('USER.AVATAR_SAVED'));
+                });
+            } else {
+                $alert.error($filter('translate')('USER.AVATAR_EMPTY'));
+            }
+        };
+
+        $scope.delete = function() {
+            $rest.putObject('user/upload-avatar',{picture: null}).then(function() {
                 User.updatePicture();
+                $alert.success($filter('translate')('USER.AVATAR_REMOVED'));
             });
         };
 
